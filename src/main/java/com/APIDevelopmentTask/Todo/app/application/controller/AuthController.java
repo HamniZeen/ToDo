@@ -36,7 +36,7 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody User user) {
         UserDetails userDetails = userService.loadUserByUsername(user.getEmail());
         String token = jwtTokenUtil.generateToken(userDetails);
-        logger.info("User logged in: {}", user.getEmail());
+        logger.info("User logged with: {}", user.getEmail());
         return ResponseEntity.ok(Collections.singletonMap("token", token));
     }
 }
